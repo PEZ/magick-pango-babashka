@@ -6,8 +6,7 @@ _A Docker image to power your pictures + text compositions._
 * Pango
 * [Babashka](https://babashka.org). (Wether you use it is up to you. It's wonderful.)
 
-![](composition.png)
-
+![](https://github.com/PEZ/magick-pango-babashka/raw/master/composition.png)
 ## Usage
 
 Here's an example adapted from https://imagemagick.org/Usage/text/
@@ -18,13 +17,13 @@ docker run --rm -v $(pwd)/output:/output cospaia/magick-pango-babashka convert -
 
 Note that we use the `convert` command here, where the original example uses `magick`. This is because ImageMagick < 7 didn't have the `magick` command. See about versions below.
 
-To generate the image decorating this repository, you can copy the [examples](examples/) folder from this repo to your computer and run:
+To generate the image decorating this repository, you can copy the [examples](https://github.com/PEZ/magick-pango-babashka/blob/master/examples/) folder to your computer and from inside it run:
 
 ``` sh
 docker run -v "$(pwd)":/work -w /work cospaia/magick-pango-babashka examples/compose.clj output/composition.png
 ```
 
-Check the [examples/compose.clj](examples/compose.clj) script:
+Check the [https://github.com/PEZ/magick-pango-babashka/blob/master/examples/compose.clj](examples/compose.clj) script:
 
 ## Versions
 
