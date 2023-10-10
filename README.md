@@ -23,7 +23,7 @@ To generate the image decorating this repository, you can copy the [examples](ht
 docker run -v "$(pwd)":/work -w /work cospaia/magick-pango-babashka examples/compose.clj output/composition.png
 ```
 
-Check the [https://github.com/PEZ/magick-pango-babashka/blob/master/examples/compose.clj](examples/compose.clj) script:
+Check the [examples/compose.clj](https://github.com/PEZ/magick-pango-babashka/blob/master/examples/compose.clj) script:
 
 ## Versions
 
@@ -45,4 +45,4 @@ Note. The image is based on Ubuntu, which as of this writing only has packages f
 
 ## License
 
-MIT. See [license file](LICENSE).
+MIT. See [license file](https://github.com/PEZ/magick-pango-babashka/blob/master/LICENSE).
