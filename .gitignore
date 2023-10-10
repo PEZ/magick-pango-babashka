@@ -1,0 +1,7 @@
+# Remove noice from docker image repo
+/.calva/
+/.lsp/
+/.portal/
+/.clj-kondo/
+
+/output/
