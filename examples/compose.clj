@@ -34,7 +34,7 @@
             "-background" "white" "-tile" "x1"
             "-mode" "Concatenate"
             montage-1)
-      (println "Writing first montage output to: " montage-2)
+      (println "Writing second montage output to: " montage-2)
       (p/sh "convert" montage-1
             "-gravity" "north" "-extent" "1200x383+0-20"
             montage-2)
