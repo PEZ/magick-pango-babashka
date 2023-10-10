@@ -15,7 +15,7 @@
       (println "Writing pango output to: " pango)
       (p/sh "convert" "-background" "white" "-size" "1140x"
             (str "pango:<span font_size='36000'>"
-                 "<b>ImageMagick + Pango + Babashka</b></span>"
+                 "<b>magick-pango-babashka<tt>:latest</tt></b></span>"
                  "\n"
                  "<span font_size='28000'>"
                  "A Docker image to power your pictures + text "
