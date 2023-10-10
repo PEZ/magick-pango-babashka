@@ -1,0 +1,9 @@
+/examples/
+
+/.calva/
+/.lsp/
+/.portal/
+/.clj-kondo/
+
+/output/
+/etc-ignored/
