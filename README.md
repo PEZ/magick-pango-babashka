@@ -1,4 +1,4 @@
-# An ImageMagick + Pango Docker image
+# ImageMagick + Pango
 
 A Docker image with:
 
@@ -8,10 +8,10 @@ A Docker image with:
 
 ## Usage
 
-Here's an example from https://imagemagick.org/Usage/text/
+Here's an example adapted from https://imagemagick.org/Usage/text/
 
 ``` sh
-docker run --rm -v $(pwd):/output cospaia/magick-pango-babashka convert -background lightblue pango:"Anthony Thyssen" /output/pango.gif
+docker run --rm -v $(pwd)/output:/output cospaia/magick-pango-babashka convert -background lightblue pango:"Anthony Thyssen" /output/pango.gif
 ```
 
 Note that we use the `convert` command here, where the original example uses `magick`. This is because ImageMagick < 7 didn't have the `magick` command. See about versions below.
