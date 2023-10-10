@@ -7,35 +7,39 @@
   (let [output-dir (-> output-path fs/file fs/parent)]
     (when output-dir
       (fs/create-dirs output-dir))
-    (let [tmp-sub-dir (name (gensym "compose-"))
-          pango-output (str (fs/path (fs/temp-dir) tmp-sub-dir "pango.png"))
-          first-montage (str (fs/path (fs/temp-dir) tmp-sub-dir "montage1.png"))
-          second-montage (str (fs/path (fs/temp-dir) tmp-sub-dir "montage2.png"))]
-      (println "Writing pango output to: " pango-output)
-      (p/sh "convert"
-            "-background" "white"
-            "-size" "1140x"
-            (str "pango:<span weight='bold' font_size='36000'>"
-                 "ImageMagick + Pango + Babashka</span>"
+    (let [tmp-dir (fs/path (fs/temp-dir) (name (gensym "compose-")))
+          pango (str (fs/path tmp-dir "pango.png"))
+          montage-1 (str (fs/path tmp-dir "montage-1.png"))
+          montage-2 (str (fs/path tmp-dir "montage-2.png"))]
+      (fs/create-dirs tmp-dir)
+      (println "Writing pango output to: " pango)
+      (p/sh "convert" "-background" "white" "-size" "1140x"
+            (str "pango:<span font_size='36000'>"
+                 "<b>ImageMagick + Pango + Babashka</b></span>"
                  "\n"
                  "<span font_size='28000'>"
                  "A Docker image to power your pictures + text "
-                 "compositions.</span>")
+                 "compositions.</span>"
+                 "\n\nExample:\n"
+                 "<tt>docker run -v \"$(pwd)\":/work -w /work "
+                 "cospaia/magick-pango-babashka examples/compose.clj "
+                 "output/composition.png</tt>")
             "-bordercolor" "white" "-border" "30"
-            pango-output)
-      (println "Writing first montage output to: " first-montage)
+            pango)
+      (println "Writing first montage output to: " montage-1)
       (p/sh "montage" "-resize" "380x"
-            "assets/ImageMagick.png" "assets/pango-name.png" "assets/babashka.png"
+            "examples/assets/ImageMagick.png" "examples/assets/pango-name.png"
+            "examples/assets/babashka.png"
             "-geometry" "+0+0" "-gravity" "center"
             "-background" "white" "-tile" "x1"
             "-mode" "Concatenate"
-            first-montage)
-      (println "Writing first montage output to: " second-montage)
-      (p/sh "convert" first-montage
+            montage-1)
+      (println "Writing first montage output to: " montage-2)
+      (p/sh "convert" montage-1
             "-gravity" "north" "-extent" "1200x440+0-20"
-            second-montage)
+            montage-2)
       (println "Writing result output to: " output-path)
-      (p/sh "montage" second-montage pango-output
+      (p/sh "montage" montage-2 pango
             "-tile" "x2" "-mode" "concatenate"
             output-path))))
 
