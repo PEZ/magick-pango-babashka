@@ -27,7 +27,7 @@
             "-bordercolor" "white" "-border" "30"
             pango)
       (println "Writing first montage output to: " montage-1)
-      (p/sh "montage" "-resize" "380x"
+      (p/sh "montage" "-resize" "350x"
             "examples/assets/ImageMagick.png" "examples/assets/pango-name.png"
             "examples/assets/babashka.png"
             "-geometry" "+0+0" "-gravity" "center"
@@ -36,7 +36,7 @@
             montage-1)
       (println "Writing first montage output to: " montage-2)
       (p/sh "convert" montage-1
-            "-gravity" "north" "-extent" "1200x440+0-20"
+            "-gravity" "north" "-extent" "1200x383+0-20"
             montage-2)
       (println "Writing result output to: " output-path)
       (p/sh "montage" montage-2 pango
