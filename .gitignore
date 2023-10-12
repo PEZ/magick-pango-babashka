@@ -3,6 +3,7 @@
 /.lsp/
 /.portal/
 /.clj-kondo/
+.cpcache/
 
 /output/
 /etc-ignored/
