@@ -2,8 +2,8 @@
 
 _A Docker image to power your pictures + text compositions._
 
-* ImageMagick
-* Pango
+* [ImageMagick](https://imagemagick.org/)
+* [Pango](https://docs.gtk.org/Pango/pango_markup.html)
 * [Babashka](https://babashka.org). (Wether you use it is up to you. It's wonderful.)
 
 ![](https://github.com/PEZ/magick-pango-babashka/raw/master/composition.png)
